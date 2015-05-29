@@ -19,6 +19,7 @@
         android:textSize="@dimen/tamanio_texto" />
 
     <TextView
+        android:id="@+id/lblTexto2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vozzz"
@@ -39,10 +40,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/probando"
-            android:layout_gravity="right|bottom"
-            android:onClick="grabar"/>
+            android:layout_gravity="right|bottom" />
 
         <Button
+            android:id="@+id/btnCambiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/cambiar" />
+
+        <Button
+            android:id="@+id/btnPresionar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal" />

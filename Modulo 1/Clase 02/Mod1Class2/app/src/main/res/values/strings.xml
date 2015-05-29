@@ -8,4 +8,6 @@
     <string name="probando">Probando</string>
     <string name="ingrese_texto">Ingrese Texto</string>
     <string name="texto">Presionando el boton Probar</string>
+    <string name="cambiar">Cambiar Pantalla</string>
+    <string name="atras">Atras</string>
 </resources>

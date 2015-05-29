@@ -1,7 +1,10 @@
 package com.johannfjs.mod1class2;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,17 +14,20 @@ import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
-    private TextView texto;
+    private TextView texto, lblTexto2;
     private EditText ingrese_texto;
-    private Button probar;
+    private Button probar, btnPresionar, btnCambiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         texto = (TextView) findViewById(R.id.lblTexto);
+        lblTexto2 = (TextView) findViewById(R.id.lblTexto2);
         ingrese_texto = (EditText) findViewById(R.id.txtTexto);
         probar = (Button) findViewById(R.id.btnProbando);
+        btnPresionar = (Button) findViewById(R.id.btnPresionar);
+        btnCambiar = (Button) findViewById(R.id.btnCambiar);
     }
 
     @Override
@@ -31,6 +37,36 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 texto.setText(getResources().getString(R.string.texto));
+            }
+        });
+        btnPresionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lblTexto2.setText(ingrese_texto.getText().toString());
+            }
+        });
+        ingrese_texto.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                lblTexto2.setText(ingrese_texto.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        btnCambiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
