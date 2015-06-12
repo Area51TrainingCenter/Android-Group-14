@@ -5,11 +5,21 @@ package com.johannfjs.models;
  */
 public class Item {
     private int id;
+    private String descripcion;
     private String rutaImagen;
 
-    public Item(int id, String rutaImagen) {
+    public Item(int id, String descripcion, String rutaImagen) {
         this.id = id;
+        this.descripcion = descripcion;
         this.rutaImagen = rutaImagen;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getId() {

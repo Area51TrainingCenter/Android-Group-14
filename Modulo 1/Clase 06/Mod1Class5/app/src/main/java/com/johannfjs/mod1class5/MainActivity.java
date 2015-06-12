@@ -32,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
 
         for (int i = 10; i < 99; i++)
             lista.add(new Item(lista.size(),
+                    "Descripcion " + i,
                     "http://johannfjs.com/android/images/HDPackSuperiorWallpapers424_0" + i + ".jpg"));
         adapter = new ItemAdapter(getApplicationContext(), lista);
         gridView.setAdapter(adapter);

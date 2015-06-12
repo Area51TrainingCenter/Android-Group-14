@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.johannfjs.mod1class5.R;
 import com.johannfjs.models.Item;
@@ -30,6 +31,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
 
     static class ViewHolder {
         ImageView imageView;
+        TextView lblTexto;
     }
 
     @Override
@@ -40,10 +42,12 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                     .inflate(R.layout.item_grid, parent, false);
             viewHolder = new ViewHolder();
             viewHolder.imageView = (ImageView) convertView.findViewById(R.id.ivImagen);
+            viewHolder.lblTexto = (TextView) convertView.findViewById(R.id.lblTexto);
             convertView.setTag(viewHolder);
         }
         viewHolder = (ViewHolder) convertView.getTag();
         imageLoader.displayImage(lista.get(position).getRutaImagen(), viewHolder.imageView);
+        viewHolder.lblTexto.setText(lista.get(position).getDescripcion());
         return convertView;
     }
 }
