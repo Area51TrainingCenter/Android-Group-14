@@ -1,13 +1,17 @@
 package com.johannfjs.mod1class5;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.johannfjs.adapters.ItemAdapter;
 import com.johannfjs.models.Item;
+import com.johannfjs.utils.Constant;
 
 import java.util.ArrayList;
 
@@ -15,7 +19,6 @@ import java.util.ArrayList;
 public class MainActivity extends ActionBarActivity {
     GridView gridView;
     ItemAdapter adapter;
-    ArrayList<Item> lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +30,24 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (lista == null)
-            lista = new ArrayList<Item>();
+        if (Constant.LISTA == null)
+            Constant.LISTA = new ArrayList<Item>();
 
         for (int i = 10; i < 99; i++)
-            lista.add(new Item(lista.size(),
+            Constant.LISTA.add(new Item(Constant.LISTA.size(),
                     "Descripcion " + i,
                     "http://johannfjs.com/android/images/HDPackSuperiorWallpapers424_0" + i + ".jpg"));
-        adapter = new ItemAdapter(getApplicationContext(), lista);
+        adapter = new ItemAdapter(getApplicationContext(), Constant.LISTA);
         gridView.setAdapter(adapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, DetalleActivity.class);
+                intent.putExtra("KEY", position);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
