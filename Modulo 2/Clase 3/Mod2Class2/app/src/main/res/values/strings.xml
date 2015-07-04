@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Mod2Class2</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_registro_usuario">RegistroUsuarioActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+</resources>
